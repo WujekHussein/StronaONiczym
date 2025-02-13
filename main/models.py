@@ -15,7 +15,7 @@ class ArticleSeries(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=300)
     subtitle = models.CharField(max_length=100, default='', blank=True)
-    slug = models.SlugField(unique=True, null=False, blank=False, default='')
+    article_slug = models.SlugField(unique=True, null=False, blank=False, default='')
     content = HTMLField(blank=True, default='')
     notes = HTMLField(blank=True, default='')
     published = models.DateTimeField(default=timezone.now)
@@ -27,6 +27,6 @@ class Article(models.Model):
     def __str__(self):
         return self.title
     @property
-    def get_slug(self):
-        return self.slug
+    def slug(self):
+        return self.series.slug + "/" + self.article_slug
 

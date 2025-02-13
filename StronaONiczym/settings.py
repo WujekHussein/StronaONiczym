@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'users',
-    'tinymce'
+    'tinymce',
+    'fontawesomefree'
 ]
 
 AUTH_USER_MODEL = 'users.MyUser'
